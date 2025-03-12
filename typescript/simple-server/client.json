@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+        "echo": {
+            "command": "node",
+            "args": [
+                "/path/to/built/javascript/file/mcp-server.js"
+            ]
+        }
+    }
+}

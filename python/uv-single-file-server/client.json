@@ -1,0 +1,15 @@
+{
+    "mcpServers": {
+        "math": {
+        "command": "/full/path/to/uv",
+        "args": [
+            "--directory",
+            "/full/path/to/mcp-examples/python/single-file-server.py",
+            "run",
+            "-n",
+            "mcp-server.py"
+        ],
+        "env": {}
+      }
+    }
+}
