@@ -1,6 +1,6 @@
 # Model Context Protocol (MCP) Examples
 
-This repository contains example implementations of Model Context Protocol (MCP) servers in different programming languages. These examples are designed to help beginners get started with creating their own MCP servers.
+This repository contains example implementations of Model Context Protocol (MCP) servers and clients in different programming languages. These examples are designed to help developers get started with creating their own MCP implementations.
 
 ## What is MCP?
 
@@ -12,24 +12,53 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open s
 
 MCP creates a standardized way for AI assistants to interact with the digital world, making it easier for developers to build powerful AI-powered applications.
 
-## Examples in this Repository
+For a more streamlined development experience, check out [MCPBuilder.ai](https://mcpbuilder.ai) - a dedicated platform for building MCP servers.
 
-### Python Examples
+## Repository Structure
 
-- [**Single-File Server (uv)**](./python/uv-single-file-server/): A minimal MCP server implemented in a single Python file using the FastMCP library and uv package manager. Perfect for beginners!
+This repository is organized into two main sections:
 
-### TypeScript Examples
+### MCP Servers
 
-- [**Simple Server**](./typescript/simple-server/): A basic MCP server implemented in TypeScript that demonstrates tools, resources, and prompts using the official MCP TypeScript SDK.
+Servers implement the MCP specification and expose tools, resources, and prompts that AI assistants can use. We provide examples for different communication protocols:
+
+- **STDIO Servers**: Use standard input/output for communication
+  - [Python STDIO Servers](/mcp-servers/stdio/python/)
+  - [TypeScript STDIO Servers](/mcp-servers/stdio/typescript/)
+  
+- **SSE Servers**: Use Server-Sent Events for communication
+  - [Python SSE Servers](/mcp-servers/sse/python/)
+  - [TypeScript SSE Servers](/mcp-servers/sse/typescript/)
+
+### MCP Clients
+
+Clients connect to MCP servers and allow applications to leverage the tools, resources, and prompts exposed by those servers:
+
+- **STDIO Clients**: Connect to STDIO servers
+  - [Python STDIO Clients](/mcp-clients/stdio/python/)
+  - [TypeScript STDIO Clients](/mcp-clients/stdio/typescript/)
+  
+- **SSE Clients**: Connect to SSE servers
+  - [Python SSE Clients](/mcp-clients/sse/python/)
+  - [TypeScript SSE Clients](/mcp-clients/sse/typescript/)
 
 ## Getting Started
 
 Each example directory contains its own README with specific instructions for setting up and running that example. Generally, you'll need to:
 
-1. **Install dependencies** for the specific language/framework
-2. **Build the server** (if necessary)
-3. **Configure your MCP client** using the provided `client.json` file
-4. **Connect with an MCP-compatible client** like Claude for Desktop
+1. **Choose a server implementation** based on your preferred language and communication protocol
+2. **Install dependencies** for the specific language/framework
+3. **Build the server** (if necessary)
+4. **Configure your MCP client** using the provided configuration files
+5. **Connect with an MCP-compatible client** like Claude for Desktop or one of our example clients
+
+## Communication Protocols
+
+MCP supports multiple communication protocols:
+
+- **STDIO (Standard Input/Output)**: A simple protocol where the server and client communicate through standard input and output streams. This is easy to implement and works well for local applications.
+
+- **SSE (Server-Sent Events)**: A web protocol where the server can push updates to the client over HTTP. This is useful for web applications and services that need to maintain a persistent connection.
 
 ## Using with Claude for Desktop
 
@@ -39,65 +68,12 @@ Each example directory contains its own README with specific instructions for se
 2. Create or edit the configuration file:
    - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
    - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-3. Add your server configuration (see example below)
-4. Restart Claude for Desktop
-
-Example configuration for macOS:
-
-```json
-{
-  "mcpServers": {
-    "my-server": {
-      "command": "/path/to/executable",
-      "args": ["arg1", "arg2"],
-      "env": {}
-    }
-  }
-}
-```
-
-Example configuration for Windows:
-
-```json
-{
-  "mcpServers": {
-    "my-server": {
-      "command": "C:\\Path\\To\\executable.exe",
-      "args": ["arg1", "arg2"],
-      "env": {}
-    }
-  }
-}
-```
-
-### Finding File Paths
-
-Finding the correct file paths is often the most challenging part for beginners. Here's how to get the full path to files on different operating systems:
-
-#### macOS
-1. Open Terminal
-2. Navigate to your file: `cd path/to/directory`
-3. Get the full path: `pwd` for the directory, then add the filename
-4. For executables like `uv`, use: `which uv`
-
-#### Windows
-1. Open File Explorer and navigate to your file
-2. Right-click on the file and select "Properties"
-3. The "Location" field shows the directory path
-4. Combine this with the filename to get the full path
-5. Remember to use double backslashes (`\\`) or forward slashes (`/`) in your JSON configuration
-
-## Learning More
-
-To learn more about MCP and how to build more advanced servers:
-
-- Visit the [official MCP documentation](https://modelcontextprotocol.io)
-- Explore the [MCP specification](https://github.com/modelcontextprotocol/specification)
-- Check out the [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) and [Python SDK](https://github.com/modelcontextprotocol/python-sdk)
+   - **Linux**: `~/.config/Claude/claude_desktop_config.json`
+3. Add your server configuration to the file (see the example configurations in each server directory)
 
 ## Contributing
 
-Feel free to contribute your own examples or improvements to existing ones by submitting a pull request!
+We welcome contributions to this repository! If you have an example implementation in another language or framework, please feel free to submit a pull request.
 
 ## License
 
