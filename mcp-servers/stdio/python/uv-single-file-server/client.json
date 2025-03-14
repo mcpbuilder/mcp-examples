@@ -1,0 +1,9 @@
+{
+    "mcpServers": {
+        "math": {
+        "command": "/absolute/path/to/mcp-examples/mcp-servers/stdio/python/uv-single-file-server/mcp-server.py",
+        "args": [],
+        "env": {}
+      }
+    }
+}
