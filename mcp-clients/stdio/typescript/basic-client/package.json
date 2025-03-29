@@ -1,0 +1,21 @@
+{
+  "name": "typescript-mcp-client",
+  "version": "1.0.0",
+  "description": "A simple TypeScript MCP client example",
+  "type": "module",
+  "main": "build/client.js",
+  "scripts": {
+    "build": "tsc && chmod +x build/client.js",
+    "start": "node build/client.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.18.0",
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "dotenv": "^16.4.5",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}

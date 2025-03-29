@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "knowledge-assistant": {
+      "command": "/Users/carstenwinsnes/personal-dev/mcpbuilder/mcp-examples/mcp-servers/stdio/python/full-server/server.py",
+      "args": [],
+      "env": {}
+    }
+  }
+}
